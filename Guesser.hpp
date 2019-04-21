@@ -1,11 +1,13 @@
 #pragma once
+#include <string>
+using std::string;
 
 namespace bullpgia
 {
     class Guesser
     {
-        private:
-        uint length;
+        protected:
+        int length;
         string cal;
 
         public:

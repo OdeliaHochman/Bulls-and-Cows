@@ -1,11 +1,13 @@
 #pragma once
+#include <string>
+using std::string;
 
 namespace bullpgia
 {
     class Chooser
     {
-        private:
-        uint length;
+        protected:
+        int length;
 
         public:
         virtual string choose(uint length); //??
