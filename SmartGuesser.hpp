@@ -1,17 +1,24 @@
+#pragma once
 #include "Guesser.hpp"
-#include <string>
-#include "calculate.hpp"
+#include<string>
 using std::string;
-
-
-namespace bullpgia
+/**
+ * ConstantGuesser is a guesser that always guesses the same string. 
+ */
+ namespace bullpgia
+ {
+class SmartGuesser: public bullpgia::Guesser 
 {
-    class SmartGuesser : public bullpgia::Guesser
-    {
-        void startNewGame(uint length) override;
-        void learn(string cal) override;
-        string guess() override;
-    };
+		string mySmartString;
+	public:
+		SmartGuesser() 
+		{		
+			this->mySmartString="";	
+		 }
 
+		     string guess() override;
+			void startNewGame(uint length)override;
+            void learn (string reply)override; 
+    
 };
-
+ }

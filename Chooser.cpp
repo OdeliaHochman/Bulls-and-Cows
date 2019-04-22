@@ -1,14 +1,13 @@
 #include "Chooser.hpp"
-using namespace std;
+#include <string>
+typedef unsigned int uint;
+using std::string;
+using namespace bullpgia;
 
+ uint length;
 
-namespace bullpgia
-{
-
-    string choose(uint length) ///???
+   string Chooser::choose(uint length)
     {
-        string s;
-        return s;
-    } 
+      return "";
+    }
 
-};

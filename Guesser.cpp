@@ -1,26 +1,19 @@
-#include "Guesser.hpp"
-#include <string>
-using std::string;
-using namespace std;
+// #pragma once
+// #include "Guesser.hpp"
+// using std::istream,std::ostream, std::string;
+// #include <iostream>
+// #include <string>
+// using std::string;
+// using namespace bullpgia
 
+// Guesser::Guesser()
+// {
+// }
+  
+// void Guesser::startNewGame(uint length)
+// {
+// }
+// void Guesser::learn(string reply)
+// {
+// }
 
-namespace bullpgia
-{
- 
-    void startNewGame(uint length)
-    {
-
-    }
-    void learn(string cal)
-    {
-
-    }
-    string guess()
-    {
-        string s;
-        return s;
-    }
-    
-
-
-};

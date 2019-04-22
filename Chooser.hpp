@@ -1,17 +1,17 @@
 #pragma once
-#include <string>
-using std::string;
+#include<iostream>
+#include<string>
+using std::istream,std::ostream, std::string;
+using namespace std;
 
-namespace bullpgia
+namespace bullpgia 
 {
     class Chooser
     {
-        protected:
-        int length;
-
-        public:
-        virtual string choose(uint length); //??
+       public:
+       uint length;
+      virtual string choose(uint length)=0;
     };
 
+}
 
-};

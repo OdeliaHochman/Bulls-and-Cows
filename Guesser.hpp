@@ -1,20 +1,23 @@
 #pragma once
-#include <string>
-using std::string;
 
-namespace bullpgia
+#include<iostream>
+//#include<string>
+using std::istream,std::ostream, std::string;
+typedef unsigned int uint;
+
+namespace bullpgia 
 {
     class Guesser
     {
-        protected:
-        int length;
-        string cal;
-
-        public:
-        virtual void startNewGame(uint length);
-        virtual void learn(string cal);
-        virtual string guess()=0;
+   
+       public:
+       uint length;
+      virtual string guess()=0;
+      virtual void startNewGame(uint length);
+      virtual void learn (string reply); 
+    
     };
 
 
 };
+
