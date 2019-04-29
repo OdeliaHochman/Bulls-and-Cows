@@ -135,27 +135,27 @@ int main() {
 	.CHECK_EQUAL(play(j13567,n13567, 5, 100), 1)      // guesser wins in one turn.
 		.CHECK_EQUAL(play(i700000, d000000, 6, 100), 101)    // guesser loses by running out of turns 
 		.CHECK_EQUAL(play(e5641, m300000, 4, 100), 101)   // guesser loses technically by making an illegal guess (too long).
-		.CHECK_EQUAL(play(a4567, f1998, 4, 100), 101)     // chooser loses technically by choosing an illegal number (too long).
+		.CHECK_EQUAL(play(a4567, f1998, 4, 100), 101)     // guesser loses by running out of turns 
 	
 		
-		.CHECK_EQUAL(play(h201, n201, 3, 100), 0)    // 
-		.CHECK_EQUAL(play(i3498, x56, 4, 100), 101)   // guesser loses technically by making an illegal guess (too long).
+		.CHECK_EQUAL(play(h201, n201, 3, 100), 1)    // guesser wins in one turn.
+		.CHECK_EQUAL(play(i3498, x56, 4, 100), 101)   // guesser loses technically by making an illegal guess (too short).
 		.CHECK_EQUAL(play(j40404040, k666, 3, 100), 0)     // chooser loses technically by choosing an illegal number (too long).
 	
-		.CHECK_EQUAL(play(s0909090, m300000, 7, 100), 1)      // lose tec
+		.CHECK_EQUAL(play(s0909090, m300000, 7, 100), 101)      // guesser loses technically by making an illegal guess (too short).
 		.CHECK_EQUAL(play(p23, x60, 2, 100), 101)    // guesser loses by running out of turns 
-		.CHECK_EQUAL(play(e5641, n5, 4, 9), 10)   // guesser loses technically by making an illegal guess (too long).
+		.CHECK_EQUAL(play(e5641, n5, 4, 9), 10)   // guesser loses technically by making an illegal guess (too short).
 		.CHECK_EQUAL(play(j890098, k765, 3, 16), 0)     // chooser loses technically by choosing an illegal number (too long).
 
-    .CHECK_EQUAL(play(p00, g1234, 2, 1), 2)      
+    .CHECK_EQUAL(play(p00, g1234, 2, 1), 2)      // guesser loses technically by making an illegal guess (too long).
 		.CHECK_EQUAL(play(h222, k333, 3, 1), 2)    // guesser loses by running out of turns 
 		.CHECK_EQUAL(play(p00, g12345, 2, 100), 101)   // guesser loses technically by making an illegal guess (too long).
-		.CHECK_EQUAL(play(p54, x60, 2, 3), 4)     // chooser loses technically by choosing an illegal number (too long).
+		.CHECK_EQUAL(play(p54, x60, 2, 3), 4)     // guesser loses by running out of turns ..
 	
 		.CHECK_EQUAL(play(s2, d2, 1, 3), 1)      // guesser wins in one turn.
 		.CHECK_EQUAL(play(p87,x77, 2, 100), 101)    // guesser loses by running out of turns 
-		.CHECK_EQUAL(play(a4567,k765, 4, 8), 9)   // guesser loses technically by making an illegal guess (too long).
-		.CHECK_EQUAL(play(e2039,g1234, 4, 100), 101)     // chooser loses technically by choosing an illegal number (too long).
+		.CHECK_EQUAL(play(a4567,k765, 4, 8), 9)   // guesser loses technically by making an illegal guess (too short).
+		.CHECK_EQUAL(play(e2039,g1234, 4, 100), 101)     //guesser loses by running out of turns .
 	
 	;
 
