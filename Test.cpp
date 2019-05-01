@@ -103,11 +103,10 @@ int main()
 			.CHECK_OUTPUT(calculateBullAndPgia("3948576", "3948501"), "5,0")		// 5 bull, 0 pgia
 			.CHECK_OUTPUT(calculateBullAndPgia("66666666", "61616161"), "4,0")		// 4 bull, 0 pgia
 			.CHECK_OUTPUT(calculateBullAndPgia("548", "238"), "1,0")				// 1 bull, 0 pgia
-
+            .CHECK_OUTPUT(calculateBullAndPgia("",""),"0,0")                        // 0 bull, 0 pgia
 			;
 
 		testcase.setname("Calculate bull and pgia - Error: Invalid input or Unequal string length")
-			.CHECK_THROWS(calculateBullAndPgia("", ""))
 			.CHECK_THROWS(calculateBullAndPgia("111", "1093"))
 			.CHECK_THROWS(calculateBullAndPgia("abc", "bca"))
 			.CHECK_THROWS(calculateBullAndPgia("/*", "#&"))
