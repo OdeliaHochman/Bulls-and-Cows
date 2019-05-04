@@ -14,11 +14,11 @@ string calculateBullAndPgia(string choice, string guess)
     string checkChoice = choice;
     string checkGuess = guess;
 
-    if (choice.length() != guess.length())
-    {
-        throw("Error!The lengths are not equal");
-    }
-    else
+//     if (choice.length() != guess.length())
+//     {
+//         throw("Error!The lengths are not equal");
+//     }
+//     else
         for (int i = 0; i < choice.length(); i++)
         {
 
