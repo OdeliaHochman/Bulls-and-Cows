@@ -4,31 +4,24 @@
 #include <string>
 #include <list>
 #include <bits/stdc++.h> 
-
-
 using std::string;
+
 /**
- * ConstantGuesser is a guesser that always guesses the same string. 
+ * SmartGuesser is a guesser that learn to guess the right string
  */
 namespace bullpgia
 {
 class SmartGuesser : public bullpgia::Guesser
 {
-	string mySmartString;
-	std::list<string> perms;
-	std::list<int> digits;
-	int pos;
+	std::list<string> perms; // list containing all the permutations of the numbers in the chooser's secret code
+	std::list<int> digits; // list containing all the numbers in the chooser's secret code
+	int pos; // Position of the guess ( 0-9)
 	bool shouldSwap(char str[], int start, int curr);
 	void findPermutations( char str[], int index, int n);
 
   public:
-	SmartGuesser()
-	{
-		this->mySmartString = "";
-	}
-
 	string guess() override;
 	void startNewGame(uint length) override;
 	void learn(string reply) override;
 };
-} // namespace bullpgia
+} 

@@ -53,7 +53,7 @@ int main()
 			testcase.CHECK_EQUAL(play(randy, smarty, 4, 100) <= 100, true); // smarty should always win in at most 10 turns!
 		}
 
-		// our tests
+		// Our tests
 		ConstantChooser a1111{"1111"}, a3452{"3452"}, a4567{"4567"};
 		ConstantGuesser b1111{"1111"}, b3452{"3452"}, b4567{"4567"};
 
@@ -103,18 +103,7 @@ int main()
 			.CHECK_OUTPUT(calculateBullAndPgia("3948576", "3948501"), "5,0")		// 5 bull, 0 pgia
 			.CHECK_OUTPUT(calculateBullAndPgia("66666666", "61616161"), "4,0")		// 4 bull, 0 pgia
 			.CHECK_OUTPUT(calculateBullAndPgia("548", "238"), "1,0")				// 1 bull, 0 pgia
-            .CHECK_OUTPUT(calculateBullAndPgia("",""),"0,0")                        // 0 bull, 0 pgia
-			;
-
-		testcase.setname("Calculate bull and pgia - Error: Invalid input or Unequal string length")
-			.CHECK_THROWS(calculateBullAndPgia("111", "1093"))
-			.CHECK_THROWS(calculateBullAndPgia("abc", "bca"))
-			.CHECK_THROWS(calculateBullAndPgia("/*", "#&"))
-			.CHECK_THROWS(calculateBullAndPgia("-5", "-5"))
-			.CHECK_THROWS(calculateBullAndPgia("3212", "54"))
-			.CHECK_THROWS(calculateBullAndPgia("1000000", "100000000"))
-			.CHECK_THROWS(calculateBullAndPgia("3212", "54"))
-
+			.CHECK_OUTPUT(calculateBullAndPgia("", ""), "0,0")						// 0 bull, 0 pgia
 			;
 
 		testcase.setname("Play with dummy choosers and guessers")
@@ -154,10 +143,6 @@ int main()
 
 			;
 
-		testcase.setname("Play with dummy choosers and guessers - Error ")
-			.CHECK_THROWS(play(s, d, 0, 100))
-
-			;
 
 		testcase.setname("Play with smart guesser");
 

@@ -1,26 +1,22 @@
 #pragma once
 
-#include<iostream>
-//#include<string>
+#include <iostream>
 #include "calculate.hpp"
-using std::istream,std::ostream, std::string;
+using std::istream, std::ostream, std::string;
 typedef unsigned int uint;
 
-namespace bullpgia 
+namespace bullpgia
 {
-    class Guesser
-    {
-   
-       public:
-       uint length;
-       Guesser(){};
-       string reply;
-       virtual string guess()=0;
-       virtual void startNewGame(uint length){};
-       virtual void learn(string reply){}; 
-    
-    };
+class Guesser
+{
+  protected:
+    uint length;
+    string myString;
 
-
+  public:
+    Guesser() { this->myString = ""; }
+    virtual string guess() = 0;
+    virtual void startNewGame(uint length){};
+    virtual void learn(string reply){};
 };
-
+}

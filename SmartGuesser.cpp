@@ -3,9 +3,14 @@
 #include <string>
 using std::string;
 
+/**
+ * this method guess the string base of the data from learn method
+ */
 string bullpgia::SmartGuesser::guess()
 {
   string ans = "";
+
+  // first step: guess "0000" "1111" "....." until we know all the digits
   if (digits.size() < length)
   {
 
@@ -15,54 +20,50 @@ string bullpgia::SmartGuesser::guess()
       ans += c;
     }
 
-    mySmartString = ans;
+    myString = ans;
     pos++;
-  //  std::cout << " the guss is=" << mySmartString << std::endl; //print
-   // std::cout << " pos=" << pos << std::endl;
 
-    return mySmartString;
+    return myString;
   }
 
- // std::cout << "in guess after found" << std::endl;
+  // second step: after we know the digits and all the permutations in perm list
+  // we pop from the list the first string
 
-  ans = perms.front(); // access first
-  perms.pop_front();   // delete firsr
-  //  std::cout << " the curr per=" << ans << std::endl;
+  ans = perms.front(); // access to the first
+  perms.pop_front();   // delete the first
 
-  mySmartString = ans;
+  myString = ans;
 
-  return mySmartString;
+  return myString;
 }
 
 void bullpgia::SmartGuesser::startNewGame(uint length)
 {
-   //   std::cout << " stat new game" << std::endl; //print
 
   this->length = length;
   pos = 0;
   perms.clear();
   digits.clear();
 }
+
+/**
+ * this method learn from the reply of calculateBullAndPgia what to guess in the next guess
+ */
 void bullpgia::SmartGuesser::learn(string reply)
 {
   bool foundAllDigit = false;
   size_t i = reply.find(',');
-  int b = stoi(reply.substr(0, i));
-  int p = stoi(reply.substr(i + 1, reply.length()));
-  //std::cout << " b=" << b << " p= " << p << std::endl;
+  int b = stoi(reply.substr(0, i));                   // bull
+  int p = stoi(reply.substr(i + 1, reply.length())); //pgia
 
-  if ( digits.size() < length)
+  // first step: add to digits list the digits we know
+  if (digits.size() < length)
   {
-  //  std::cout << "enter to add and the size :" <<digits.size()<< std::endl;
 
     for (size_t j = 0; j < b; j++)
     {
       digits.push_front(pos - 1);
     }
-  //  std::cout << "the digit list:" << std::endl;
-
-    for (auto v : digits)     ////// print
-  //    std::cout << v << "\n"; ///// print
 
     if (digits.size() == length)
       foundAllDigit = true;
@@ -71,9 +72,11 @@ void bullpgia::SmartGuesser::learn(string reply)
       return;
     }
   }
+
+  // Happens once, once we have reached the number of digits.
+  // We calculate all the permutations and add them to the list
   if (foundAllDigit)
   {
-      //    std::cout <<"in learn after found" << "\n"; ///// print
 
     string ans = "";
     for (std::list<int>::iterator it = digits.begin(); it != digits.end(); ++it)
@@ -81,19 +84,18 @@ void bullpgia::SmartGuesser::learn(string reply)
       char c = '0' + *it;
       ans += c;
     }
-    char *chr = strdup(ans.c_str());
+    char *chr = strdup(ans.c_str()); // convert from strin to char*
 
-    findPermutations(chr, 0, length);
-    free(chr);
-    // std::cout << "the string list:" << std::endl;
+    findPermutations(chr, 0, length); // find the Permutations and add them to perm list
 
-   // for (auto v : perms)     ////// print
-   //   std::cout << v << "\n"; ///// print
     foundAllDigit = false;
   }
 }
 
-///////////// this algoritim from this site https://www.geeksforgeeks.org/print-all-permutations-with-repetition-of-characters/
+/**
+ * this algoritim from this site 
+ * https://www.geeksforgeeks.org/print-all-permutations-with-repetition-of-characters/ 
+ */
 
 // Returns true if str[curr] does not matches with any of the
 // characters after str[start]
@@ -105,7 +107,7 @@ bool bullpgia::SmartGuesser::shouldSwap(char str[], int start, int curr)
   return 1;
 }
 
-// Prints all distinct permutations in str[0..n-1]
+// Add to list all distinct permutations in str[0..n-1]
 void bullpgia::SmartGuesser::findPermutations(char str[], int index, int n)
 {
   if (index >= n)

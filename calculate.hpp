@@ -1,12 +1,10 @@
 #pragma once
 
-#include<iostream>
+#include <iostream>
 using std::string;
 
-
-namespace bullpgia 
+namespace bullpgia
 {
 
- string calculateBullAndPgia(string choice, string guess);// int []
-
+string calculateBullAndPgia(string choice, string guess); // int []
 };
