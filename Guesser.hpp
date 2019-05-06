@@ -1,8 +1,7 @@
 #pragma once
 
-#include <iostream>
 #include "calculate.hpp"
-using std::istream, std::ostream, std::string;
+using std::string;
 typedef unsigned int uint;
 
 namespace bullpgia

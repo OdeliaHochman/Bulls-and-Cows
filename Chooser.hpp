@@ -1,7 +1,6 @@
 #pragma once
-#include <iostream>
 #include <string>
-using std::istream, std::ostream, std::string;
+using std::string;
 using namespace std;
 
 namespace bullpgia
